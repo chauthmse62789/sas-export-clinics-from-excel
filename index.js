@@ -228,6 +228,32 @@ app.get("/clinics/delete-2-clinics", async (req, res) => {
   }
 });
 
+app.get("/clinics/add-1-delete-6-clinics", async (req, res) => {
+  try {
+    const addNewClinicsListByLisaCode = ["BVDHYHN"];
+
+    let raw = fs.readFileSync("exports-clinics-27122022.json");
+    let data = JSON.parse(raw);
+
+    let tempArr = [];
+    addNewClinicsListByLisaCode.map((code) => {
+      data.filter((item) => {
+        if (code === item.lisaCode) {
+          console.log(item);
+          tempArr.push(item);
+        }
+      });
+    });
+
+    res.send({
+      total: tempArr.length,
+      data: tempArr,
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
