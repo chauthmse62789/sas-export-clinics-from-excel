@@ -34,12 +34,7 @@ app.post("/clinics/generates", async (req, res) => {
 
 app.get("/clinics/add-new", async (req, res) => {
   try {
-    const addNewClinicsListByLisaCode = [
-      "PKDKJHTB",
-      "PKDKJHTD",
-      "PKDKJHBD",
-      "BV175",
-    ];
+    const addNewClinicsListByLisaCode = ["KIC2004", "KIC"];
 
     let raw = fs.readFileSync("exports-clinics.json");
     let data = JSON.parse(raw);
