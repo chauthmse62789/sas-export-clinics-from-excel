@@ -34,9 +34,26 @@ app.post("/clinics/generates", async (req, res) => {
 
 app.get("/clinics/add-new", async (req, res) => {
   try {
-    const addNewClinicsListByLisaCode = ["KIC2004", "KIC"];
+    const addNewClinicsListByLisaCode = [
+      "SGHCARE",
+      "BVHDII",
+      "PKQTMY",
+      "BERNARD2",
+      "PKDKTP",
+      "BVPCST",
+      "BVPCSD",
+      "PKDKSUN",
+      "PKDKECO",
+      "BVRHMSGC",
+      "PRIMASG",
+      "PRIMAPXL",
+      "PKDKHMSG",
+      "BVDKTNBD",
+      "BVHMTD",
+      "PKDR4U",
+    ];
 
-    let raw = fs.readFileSync("exports-clinics.json");
+    let raw = fs.readFileSync("export-20230620-clinics.json");
     let data = JSON.parse(raw);
 
     let tempArr = [];
